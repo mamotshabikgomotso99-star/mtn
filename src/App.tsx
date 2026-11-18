@@ -236,7 +236,7 @@ function App() {
   const [wishlist, setWishlist] = useState<string[]>([])
   const [compare, setCompare] = useState<string[]>([])
   const [selectedDeal, setSelectedDeal] = useState<Deal | null>(null)
-  const [videoPlaying, setVideoPlaying] = useState(false)
+  const [videoPlaying, setVideoPlaying] = useState(true)
   const [videoFailed, setVideoFailed] = useState(false)
   const videoRef = useRef<HTMLVideoElement | null>(null)
 
@@ -407,6 +407,15 @@ function App() {
               {searchOpen ? <X size={19} /> : <Search size={19} />}
             </button>
             <a
+              href={MTN_PROMOTIONS_URL}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Browse the MTN catalogue"
+              className="inline-flex h-10 items-center gap-1.5 rounded-full bg-[#ffcc00] px-3 text-xs font-bold text-black transition hover:bg-[#f2bd00] sm:px-4 sm:text-sm"
+            >
+              Catalogue <ExternalLink size={14} aria-hidden="true" />
+            </a>
+            <a
               href="https://www.mtn.co.za/"
               className="hidden rounded-full bg-[#ffcc00] px-5 py-2.5 text-sm font-bold text-black transition hover:bg-[#f2bd00] md:inline-flex"
             >
@@ -541,7 +550,7 @@ function App() {
           <div className="mx-auto grid max-w-[1440px] grid-cols-2 divide-x divide-black/15 sm:grid-cols-4">
             {[
               ['Shop devices', MTN_PHONES_URL],
-              ['Promotions', MTN_PROMOTIONS_URL],
+              ['Catalogue', MTN_PROMOTIONS_URL],
               ['Plans', MTN_PLANS_URL],
               ['Home internet', MTN_HOME_URL],
             ].map(([label, href]) => (
